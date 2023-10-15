@@ -1,8 +1,8 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +10,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
