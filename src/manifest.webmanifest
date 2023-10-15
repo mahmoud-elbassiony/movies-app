@@ -1,6 +1,6 @@
 {
-  "name": "lab7",
-  "short_name": "lab7",
+  "name": "movies-app",
+  "short_name": "movies-app",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
