@@ -9,6 +9,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WatchlistemptyComponent } from './watchlistempty/watchlistempty.component';
 import { WatchlistcardComponent } from './watchlistcard/watchlistcard.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { MoviesModule } from './movies/movies.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorInterceptor } from './shared/interceptors/http.interceptor';
 
 @NgModule({
   declarations: [AppComponent, WatchlistComponent, WatchlistemptyComponent, WatchlistcardComponent, NotfoundComponent],
@@ -16,6 +19,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     BrowserModule,
     SharedModule,
     AppRoutingModule,
+    MoviesModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
@@ -27,6 +31,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 
 
   providers: [],
+ 
+ 
   bootstrap: [AppComponent],
 })
 export class AppModule {}
