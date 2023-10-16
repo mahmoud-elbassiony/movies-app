@@ -1,0 +1,8 @@
+.pi-heart-fill
+ {
+  color: var(--main-color);
+ }
+ngb-rating {
+    color: #FFC107;
+    font-size: 2rem;
+}

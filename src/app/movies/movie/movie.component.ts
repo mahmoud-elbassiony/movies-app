@@ -10,6 +10,7 @@ import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-
 export class MovieComponent {
   img_path = 'https://image.tmdb.org/t/p/w500/';
   @Input() movie!: any;
+
   watchList!: any;
 
   constructor(
@@ -25,5 +26,9 @@ export class MovieComponent {
   toggleWatchList(movie: any) {
     this.watchListService.toggleWatchList(movie);
     console.log(movie);
+  }
+
+  roundNum(num: number) {
+    return Math.round(num);
   }
 }

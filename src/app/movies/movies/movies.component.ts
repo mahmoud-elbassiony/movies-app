@@ -3,7 +3,7 @@ import { RequestService } from 'src/app/shared/services/request.service';
 import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-s.service';
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css'],
 })

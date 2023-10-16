@@ -1,34 +1,52 @@
 <!-- <div class="card" (click)="redirect($event, movie.id)"> -->
 <div class="card" (click)="redirect($event, watchlist1, watchlist2, movie.id)">
   <div>
-    <img
-      src="{{ img_path }}{{ movie.backdrop_path }}"
-      class="card-img-top"
-      alt="..."
-    />
-  </div>
+    <div class="card border-0 h-100">
+      <div class="movie-img-wapper position-relative">
+        <img
+          src="{{ img_path }}{{ movie.backdrop_path }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div
+          class="position-absolute rounded-circle dots-container d-flex align-items-center justify-content-center"
+        >
+          <span class="dot rounded-circle"></span>
+          <span class="dot rounded-circle"></span>
+          <span class="dot rounded-circle"></span>
+        </div>
+        <div
+          class="rating position-absolute rounded-circle d-flex text-light justify-content-center align-items-center"
+        >
+          {{ roundNum((movie.vote_average / 10) * 100)
+          }}<span class="percentage">%</span>
+          <div class="progress"></div>
+        </div>
+      </div>
 
-  <div class="card-body">
-    <h5 class="card-title">{{ movie.title }}</h5>
-    <p class="card-text">
-      {{ movie.release_date }}
-    </p>
-    <div>
-      <i
-        #watchlist1
-        (click)="toggleWatchList(movie)"
-        class="bi bi-heart fs-5"
-        style="width: fit-content"
-        [style]="{ display: !movie.isInWatchList ? 'block' : 'none' }"
-        [style]="{ display: !movie.isInWatchList ? 'block' : 'none' }"
-      ></i>
-      <i
-        #watchlist2
-        (click)="toggleWatchList(movie)"
-        class="bi bi-heart-fill fs-5"
-        style="width: fit-content"
-        [style]="{ display: movie.isInWatchList ? 'block' : 'none' }"
-      ></i>
+      <div class="card-body px-2">
+        <h5 class="card-title fw-bold fs-6 title">{{ movie.title }}</h5>
+        <p class="card-text text-muted">
+          {{ movie.release_date }}
+        </p>
+        <div>
+          <i
+            #watchlist1
+            (click)="toggleWatchList(movie)"
+            class="bi bi-heart fs-5"
+            style="width: fit-content"
+            [style]="{ display: !movie.isInWatchList ? 'block' : 'none' }"
+            [style]="{ display: !movie.isInWatchList ? 'block' : 'none' }"
+          ></i>
+          <i
+            #watchlist2
+            (click)="toggleWatchList(movie)"
+            class="bi bi-heart-fill fs-5"
+            style="width: fit-content"
+            [style]="{ display: movie.isInWatchList ? 'block' : 'none' }"
+          ></i>
+        </div>
+      </div>
     </div>
   </div>
 </div>
