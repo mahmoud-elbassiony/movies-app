@@ -1,0 +1,9 @@
+<div class="container py-5">
+  <div class="row g-3">
+    <app-movie
+      class="col-3"
+      *ngFor="let movie of movies"
+      [movie]="movie"
+    ></app-movie>
+  </div>
+</div>
