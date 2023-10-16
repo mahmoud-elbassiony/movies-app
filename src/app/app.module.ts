@@ -20,6 +20,7 @@ import { HttpInterceptorInterceptor } from './shared/interceptors/http.intercept
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
+ 
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
