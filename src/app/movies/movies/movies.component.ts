@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/shared/services/request.service';
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css'],
 })
