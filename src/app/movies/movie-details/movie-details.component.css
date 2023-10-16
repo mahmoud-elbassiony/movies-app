@@ -1,0 +1,17 @@
+.rating {
+  font-style: normal;
+  display: inline-block;
+  color: #cccccc;
+}
+.rating-container {
+  width: fit-content;
+}
+.rating-bg {
+  color: #ffe353 !important;
+  overflow: hidden;
+  display: flex;
+  top: 0;
+}
+.bi-star-fill:nth-child(even) {
+  margin: 0 0.25rem;
+}
