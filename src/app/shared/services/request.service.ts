@@ -15,12 +15,12 @@ export class RequestService {
     return this.http.get(`https://api.themoviedb.org/3/movie/popular?`);
   }
 
-  getMovieById(): Observable<any> {
-    return this.http.get(`https://api.themoviedb.org/3/movie/%7Bid%7D`);
+  getMovieById(id: number): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}?`);
   }
-  getRecommendations(): Observable<any> {
+  getRecommendations(id: number): Observable<any> {
     return this.http.get(
-      `https://api.themoviedb.org/3/movie/{movie_id}/recommendations`
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?`
     );
   }
 }
