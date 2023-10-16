@@ -6,7 +6,16 @@
     <div class="col-8">
       <div class="mb-1 d-flex justify-content-between align-items-center">
         <h2>{{ movieDetails?.original_title }}</h2>
-        <a><i class="bi bi-heart me-5 fs-5"></i></a>
+        <a
+          (click)="toggleWatchList(movieDetails)"
+          [style]="{ display: !movieDetails?.isInWatchList ? 'block' : 'none' }"
+          ><i class="bi bi-heart me-5 fs-5"></i
+        ></a>
+        <a
+          (click)="toggleWatchList(movieDetails)"
+          [style]="{ display: movieDetails?.isInWatchList ? 'block' : 'none' }"
+          ><i class="bi bi-heart-fill me-5 fs-5"></i
+        ></a>
       </div>
 
       <h6 class="fw-normal text-black-50 fs-xs">

@@ -20,13 +20,13 @@ import { HttpInterceptorInterceptor } from './shared/interceptors/http.intercept
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorInterceptor,
-      multi: true,
-    },
-  ],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: HttpInterceptorInterceptor,
+  //     multi: true,
+  //   },
+  // ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,4 +1,5 @@
-<div class="card">
+<!-- <div class="card" (click)="redirect($event, movie.id)"> -->
+<div class="card" (click)="redirect($event, watchlist1, watchlist2, movie.id)">
   <div>
     <img
       src="{{ img_path }}{{ movie.backdrop_path }}"
@@ -12,6 +13,22 @@
     <p class="card-text">
       {{ movie.release_date }}
     </p>
-    <!-- <a href="#" class="btn btn-primary"></a> -->
+    <div>
+      <i
+        #watchlist1
+        (click)="toggleWatchList(movie)"
+        class="bi bi-heart fs-5"
+        style="width: fit-content"
+        [style]="{ display: !movie.isInWatchList ? 'block' : 'none' }"
+        [style]="{ display: !movie.isInWatchList ? 'block' : 'none' }"
+      ></i>
+      <i
+        #watchlist2
+        (click)="toggleWatchList(movie)"
+        class="bi bi-heart-fill fs-5"
+        style="width: fit-content"
+        [style]="{ display: movie.isInWatchList ? 'block' : 'none' }"
+      ></i>
+    </div>
   </div>
 </div>
