@@ -1,14 +1,16 @@
 
-<div class="row">
-  <!-- here to put the loop of card component -->
-<div class="col">
 
-  <!-- <div *ngIf="condition; then thenBlock else elseBlock"></div>
-<ng-template #elseBlock><app-watchlistcard></app-watchlistcard></ng-template> -->
-<!-- <ng-template #thenBlock><app-watchlistempty></app-watchlistempty></ng-template> -->
+  <div *ngIf="this.movies.length > 0;  else elseBlock">
+  <div class="row">
+  <div class="col" *ngFor="let movie of movies">
+  <app-watchlistcard [item]="movie"></app-watchlistcard>
+  </div>
+  </div>
+  </div>
+
+<ng-template #elseBlock><app-watchlistempty ></app-watchlistempty></ng-template>
 
 
-<app-watchlistempty></app-watchlistempty>
-<app-watchlistcard></app-watchlistcard>
-</div>
-</div>
+
+<!-- <app-watchlistempty></app-watchlistempty>
+<app-watchlistcard></app-watchlistcard> -->
