@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Movie } from 'src/app/shared/interfaces/movie';
 import { SearchResultsService } from 'src/app/shared/services/search-results/search-results.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { SearchResultsService } from 'src/app/shared/services/search-results/sea
   styleUrls: ['./search-results.component.css'],
 })
 export class SearchResultsComponent {
-  searchResults!: any;
+  searchResults!: Movie[];
   searchValue!: string;
 
   constructor(private searchResultsService: SearchResultsService) {}
@@ -15,7 +16,7 @@ export class SearchResultsComponent {
   ngOnInit() {
     this.searchResultsService
       .getSearchResults()
-      .subscribe((data) => (this.searchResults = data));
+      .subscribe((data) => (this.searchResults = data.results));
 
     this.searchResultsService
       .getSearchValue()

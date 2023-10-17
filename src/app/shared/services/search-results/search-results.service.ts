@@ -21,7 +21,7 @@ export class SearchResultsService {
     return this.searchValue.asObservable();
   }
 
-  setSearchResults(s: any) {
+  setSearchResults(s: Object) {
     this.searchResults.next(s);
   }
 
