@@ -1,15 +1,14 @@
 <div class="container mt-4">
-  <input type="text" placeholder="Search and explore...." />
-  <button class="btn btn-primary">Search</button>
-  <p>Search Results for : {{ searchWord }}</p>
+  <app-search-form></app-search-form>
+  <p>Search Results for : {{ searchValue }}</p>
 </div>
-
 <div class="container py-5">
-  <div class="row g-3">
+  <div *ngIf="searchResults?.results?.length; else noResults" class="row g-3">
     <app-movie
       class="col-6 col-md-4 col-lg-2"
       *ngFor="let movie of searchResults?.results"
       [movie]="movie"
     ></app-movie>
   </div>
+  <ng-template #noResults><p>No matched results</p></ng-template>
 </div>
