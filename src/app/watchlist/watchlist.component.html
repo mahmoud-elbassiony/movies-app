@@ -1,16 +1,13 @@
-
-  <div class="container-fluid ms-5">
-  <h2 class="my-3 fw-bold">Watch List</h2>
+<div class="container py-5">
+  <div *ngIf="this.movies.length > 0; else elseBlock">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let movie of movies">
+        <app-watchlistcard [item]="movie"></app-watchlistcard>
+      </div>
+    </div>
   </div>
 
-  <div *ngIf="this.movies.length > 0;  else elseBlock">
-  <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let movie of movies">
-  <app-watchlistcard [item]="movie"></app-watchlistcard>
-  </div>
-  </div>
-  </div>
-
-<ng-template #elseBlock><app-watchlistempty ></app-watchlistempty></ng-template>
-
-
+  <ng-template #elseBlock
+    ><app-watchlistempty></app-watchlistempty
+  ></ng-template>
+</div>
