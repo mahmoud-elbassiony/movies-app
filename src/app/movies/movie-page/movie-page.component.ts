@@ -10,6 +10,7 @@ import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-
 })
 export class MoviePageComponent {
   movieDetails: any;
+  recommendations!: any[];
   watchList: any;
 
   constructor(
@@ -35,6 +36,14 @@ export class MoviePageComponent {
             }
           }
         });
+      });
+
+    this.requestServive
+      .getRecommendations(this.route.snapshot.params['id'])
+      .subscribe((data) => {
+        this.recommendations = data.results;
+        console.log(data);
+        console.log(this.recommendations);
       });
   }
 }
