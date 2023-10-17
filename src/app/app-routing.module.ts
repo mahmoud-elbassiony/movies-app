@@ -4,6 +4,7 @@ import { moviesComponent } from './movies/movies/movies.component';
 import { MoviePageComponent } from './movies/movie-page/movie-page.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { SearchResultsComponent } from './movies/search-results/search-results.component';
 
 // Define your routes as an array of objects
 
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'watch-list',
     component: WatchlistComponent,
+  },
+  {
+    path: 'search/:movie-name',
+    component: SearchResultsComponent,
   },
   {
     path: '**',
