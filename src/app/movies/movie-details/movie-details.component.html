@@ -3,13 +3,13 @@
     <div class="col-4">
       <img
         style="height: 100%"
-        [src]="img_path + movieDetails?.poster_path"
+        [src]="movieDetails && img_path + movieDetails.poster_path"
         alt=""
       />
     </div>
     <div class="col-8">
       <div class="mb-1 d-flex justify-content-between align-items-center">
-        <h2>{{ movieDetails?.original_title }}</h2>
+        <h2>{{ movieDetails && movieDetails.original_title }}</h2>
         <a
           (click)="toggleWatchList(movieDetails)"
           style="cursor: pointer"
@@ -17,14 +17,14 @@
           ><i
             class="bi bi-heart me-5 fs-5"
             [ngClass]="{
-              'bi-heart': !movieDetails?.isInWatchList,
-              'bi-heart-fill': movieDetails?.isInWatchList
+              'bi-heart': movieDetails && !movieDetails.isInWatchList,
+              'bi-heart-fill': movieDetails && movieDetails.isInWatchList
             }"
           ></i
         ></a>
       </div>
       <h6 class="fw-normal text-black-50 fs-xs">
-        {{ movieDetails?.release_date | date }}
+        {{ movieDetails && movieDetails.release_date | date }}
       </h6>
       <div class="d-flex align-items-center mb-4 mt-3">
         <div class="rating-container position-relative me-3">
@@ -33,15 +33,19 @@
           </div>
           <div
             class="rating rating-bg position-absolute"
-            [style.width.%]="movieDetails?.vote_average * 10">
+
+            [style.width.%]="movieDetails && movieDetails.vote_average * 10"
+          >
             <i *ngFor="let star of stars" class="bi bi-star-fill fs-5"></i>
           </div>
         </div>
-        <h6 class="fs-xs m-0">({{ movieDetails?.vote_count }})</h6>
+        <h6 class="fs-xs m-0">
+          ({{ movieDetails && movieDetails.vote_count }})
+        </h6>
       </div>
 
       <p>
-        {{ movieDetails?.overview }}
+        {{ movieDetails && movieDetails.overview }}
       </p>
       <div class="my-3 d-flex gap-3">
         <span
@@ -53,7 +57,9 @@
       <div class="d-flex gap-5">
         <div class="d-flex">
           <h6 class="me-3">Duration:</h6>
-          <h6 class="fw-normal">{{ movieDetails?.runtime }} Min.</h6>
+          <h6 class="fw-normal">
+            {{ movieDetails && movieDetails.runtime }} Min.
+          </h6>
         </div>
         <div class="d-flex">
           <h6 class="me-3">Languages:</h6>
@@ -76,7 +82,7 @@
       </div>
       <div>
         <a
-          [href]="movieDetails?.homepage"
+          [href]="movieDetails && movieDetails.homepage"
           target="_blank"
           class="btn btn-outline-primary rounded-pill text-dark"
           >Website <i class="bi bi-link-45deg"></i
