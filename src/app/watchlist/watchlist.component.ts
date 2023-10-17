@@ -7,14 +7,12 @@ import { WatchListSService } from '../shared/watch-list-service/watch-list-s.ser
   styleUrls: ['./watchlist.component.css'],
 })
 export class WatchlistComponent {
-  starRating = 0;
 
   movies!: any;
   constructor(private WatchList: WatchListSService) {}
 
   ngOnInit() {
-    this.WatchList.getWatchList().subscribe(
-      (data: any) => (this.movies = data)
-    );
+    this.WatchList.getWatchList().subscribe((data: any) => this.movies = data);
   }
 }
+// this.movies = data;

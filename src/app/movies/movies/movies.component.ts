@@ -11,18 +11,23 @@ export class moviesComponent implements OnInit {
   movies!: any;
   img_path: string = '';
   watchList: any;
+  pageNum: number = 1;
+  pagesNum: number = 0;
+  pagination!: any;
   constructor(
     private requestService: RequestService,
     private watchListService: WatchListSService
   ) {}
   ngOnInit() {
-    this.requestService.getMovies().subscribe((data: any) => {
+    this.requestService.getAllMovies(this.pageNum).subscribe((data: any) => {
       this.movies = data.results;
       this.img_path = this.requestService.img_path;
+      this.pagesNum = data.total_pages;
+      this.pagination = new Array(8);
       this.watchListService.getWatchList().subscribe((wl) => {
         this.watchList = wl;
-        for (let j = 0; j < this.movies.length; j++) {
-          for (let i = 0; i < this.watchList.length; i++) {
+        for (let j = 0; j < this.movies?.length; j++) {
+          for (let i = 0; i < this.watchList?.length; i++) {
             if (this.movies[j].id == this.watchList[i].id) {
               this.movies[j].isInWatchList = true;
               break;
@@ -33,5 +38,30 @@ export class moviesComponent implements OnInit {
         }
       });
     });
+  }
+  goToAnotherPage(index: number) {
+    this.pageNum = index;
+    this.requestService.getAllMovies(this.pageNum).subscribe((data: any) => {
+      this.movies = data.results;
+    });
+  }
+  handleNext(e: Event) {
+    e.preventDefault();
+    if (this.pageNum < this.pagesNum)
+      this.requestService
+        .getAllMovies(++this.pageNum)
+        .subscribe((data: any) => {
+          this.movies = data.results;
+        });
+  }
+  handlePrevious(e: Event) {
+    e.preventDefault();
+    if (this.pageNum !== 1) {
+      this.requestService
+        .getAllMovies(--this.pageNum)
+        .subscribe((data: any) => {
+          this.movies = data.results;
+        });
+    }
   }
 }

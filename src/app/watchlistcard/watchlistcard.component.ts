@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./watchlistcard.component.css'],
 })
 export class WatchlistcardComponent {
-  starRating = 0;
-
+  img_path: string = 'https://image.tmdb.org/t/p/w500/';
+  stars: any[] = new Array(5);
   @Input() item: any;
 }
