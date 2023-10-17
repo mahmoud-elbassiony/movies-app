@@ -1,5 +1,5 @@
 header {
-  background-color: var(--main-color)
+  background-color: var(--main-color);
 }
 .image {
   width: 8rem;
@@ -9,10 +9,27 @@ ul {
 }
 ul li {
   display: inline-block;
-
 }
 ul li a {
   text-decoration: none;
   color: black;
 }
 
+.watch-list-icon {
+  /* position: relative;
+  font-size: 20px; */
+}
+.watch-list-counter {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  font-style: normal;
+  background: white;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}

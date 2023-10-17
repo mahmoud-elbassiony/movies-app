@@ -1,4 +1,5 @@
 import { Input, Component } from '@angular/core';
+import { Movie } from 'src/app/shared/interfaces/movie';
 
 @Component({
   selector: 'app-recommendations',
@@ -6,5 +7,5 @@ import { Input, Component } from '@angular/core';
   styleUrls: ['./recommendations.component.css'],
 })
 export class RecommendationsComponent {
-  @Input() recommendations!: any[];
+  @Input() recommendations!: Movie[];
 }
