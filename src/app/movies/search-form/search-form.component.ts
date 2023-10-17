@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Movie } from 'src/app/shared/interfaces/movie';
 import { RequestService } from 'src/app/shared/services/request.service';
 import { SearchResultsService } from 'src/app/shared/services/search-results/search-results.service';
 
@@ -9,8 +10,6 @@ import { SearchResultsService } from 'src/app/shared/services/search-results/sea
   styleUrls: ['./search-form.component.css'],
 })
 export class SearchFormComponent {
-  searchResults!: any;
-  test: string = 'test';
   constructor(
     private route: Router,
     private requsetService: RequestService,

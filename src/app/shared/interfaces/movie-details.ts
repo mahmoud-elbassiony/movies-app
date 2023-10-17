@@ -22,7 +22,7 @@ export interface MovieDetails {
   poster_path: string;
   production_companies: {
     id: number;
-    logo_path: string;
+    logo_path: string | null;
     name: string;
     origin_country: string;
   }[];
