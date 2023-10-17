@@ -3,15 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SharedModule } from './shared/shared.module';
+import { WatchlistComponent } from './watchlist/watchlist.component';
+import { AppRoutingModule } from './app-routing.module';
+import { WatchlistemptyComponent } from './watchlistempty/watchlistempty.component';
+import { WatchlistcardComponent } from './watchlistcard/watchlistcard.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { MoviesModule } from './movies/movies.module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpInterceptorInterceptor } from './shared/interceptors/http.interceptor';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    WatchlistComponent,
+    WatchlistemptyComponent,
+    WatchlistcardComponent,
+    NotfoundComponent,
+  ],
   imports: [
     BrowserModule,
     SharedModule,
+    AppRoutingModule,
     MoviesModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
@@ -20,14 +30,9 @@ import { HttpInterceptorInterceptor } from './shared/interceptors/http.intercept
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
- 
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorInterceptor,
-      multi: true,
-    },
-  ],
+
+  providers: [],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
