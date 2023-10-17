@@ -1,0 +1,8 @@
+.paginator {
+  width: fit-content;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 1rem;
+}
