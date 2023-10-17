@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MovieDetails } from 'src/app/shared/interfaces/movie-details';
 import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-s.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-
   styleUrls: ['./movie-details.component.css'],
 })
 export class MovieDetailsComponent {
-  @Input() movieDetails!: any;
+  @Input() movieDetails!: MovieDetails;
   img_path: string = 'https://image.tmdb.org/t/p/w500/';
   stars: any[] = new Array(5);
 
