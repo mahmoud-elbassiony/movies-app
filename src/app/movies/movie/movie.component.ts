@@ -22,8 +22,8 @@ export class MovieComponent {
     private movieDataService: MovieDataService
   ) {}
 
-  redirect(e: any, a: any, b: any, id: number) {
-    if (e.target !== a && e.target !== b) {
+  redirect(e: any, a: any, id: number) {
+    if (e.target !== a) {
       this.route.navigate(['movie-details', id]);
       this.requestService
         .getMovieById(id)

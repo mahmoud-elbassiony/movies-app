@@ -7,4 +7,22 @@
       [movie]="movie"
     ></app-movie>
   </div>
+  <div aria-label="Page navigation example" class="paginator mx-auto mt-5">
+    <ul class="pagination d-flex align-items-center">
+      <li class="page-item">
+        <a (click)="handlePrevious($event)">&raquo;</a>
+      </li>
+      <li
+        class="page-item border"
+        *ngFor="let page of pagination; let i = index"
+      >
+        <button class="page-link" (click)="goToAnotherPage(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </li>
+      <li class="page-item">
+        <a (click)="handleNext($event)">&raquo;</a>
+      </li>
+    </ul>
+  </div>
 </div>
