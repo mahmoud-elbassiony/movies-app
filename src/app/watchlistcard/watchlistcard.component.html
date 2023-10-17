@@ -1,4 +1,4 @@
-<div class="container-fluid px-5">
+<div class="container px-5">
   <div class="card mb-3" style="max-width: 540px">
     <div class="row g-0">
       <div class="col-md-4">
@@ -11,7 +11,7 @@
       <div class="col-md-8">
         <div class="card-body">
           <div class="d-flex align-items-center justify-content-between">
-            <h3 class="card-title fw-bold">{{ item.original_title }}</h3>
+            <h5 class="card-title fw-bold">{{ item.original_title }}</h5>
             <i class="bi-heart-fill me-2 fs-4"></i>
           </div>
           <p class="mb-0">
@@ -30,9 +30,8 @@
                 <i *ngFor="let star of stars" class="bi bi-star-fill fs-5"></i>
               </div>
             </div>
-
-            <p class="description">{{ item.overview.slice(0, 150) }}...</p>
           </div>
+             <p class="description">{{ item.overview.slice(0, 100) }}...</p>
         </div>
       </div>
     </div>
