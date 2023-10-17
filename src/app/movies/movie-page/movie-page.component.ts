@@ -24,6 +24,8 @@ export class MoviePageComponent {
       .getMovieById(this.route.snapshot.params['id'])
       .subscribe((data) => {
         this.movieDetails = data;
+        console.log(this.movieDetails);
+
         this.watchListService.getWatchList().subscribe((wl) => {
           this.watchList = wl;
 
@@ -42,8 +44,6 @@ export class MoviePageComponent {
       .getRecommendations(this.route.snapshot.params['id'])
       .subscribe((data) => {
         this.recommendations = data.results;
-        console.log(data);
-        console.log(this.recommendations);
       });
   }
 }
