@@ -42,4 +42,9 @@ export class RequestService {
       `https://api.themoviedb.org/3/movie/${id}/recommendations?`
     );
   }
+  getSearchResults(movieName: string) {
+    return this.http.get('https://api.themoviedb.org/3/search/movie?', {
+      params: { query: movieName },
+    });
+  }
 }
