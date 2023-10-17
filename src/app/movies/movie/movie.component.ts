@@ -32,7 +32,7 @@ export class MovieComponent {
       this.requestService
         .getRecommendations(id)
         .subscribe((data) =>
-          this.movieDataService.setMovieRecommendations(data)
+          this.movieDataService.setMovieRecommendations(data.results)
         );
     }
   }
