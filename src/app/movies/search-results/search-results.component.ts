@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { RequestService } from 'src/app/shared/services/request.service';
+import { SearchResultsService } from 'src/app/shared/services/search-results/search-results.service';
 
 @Component({
   selector: 'app-search-results',
@@ -9,17 +8,17 @@ import { RequestService } from 'src/app/shared/services/request.service';
 })
 export class SearchResultsComponent {
   searchResults!: any;
-  searchWord!: string;
+  searchValue!: string;
 
-  constructor(
-    private route: ActivatedRoute,
-    private requestService: RequestService
-  ) {}
+  constructor(private searchResultsService: SearchResultsService) {}
 
   ngOnInit() {
-    this.searchWord = this.route.snapshot.params['movie-name'];
-    this.requestService
-      .getSearchResults(this.route.snapshot.params['movie-name'])
+    this.searchResultsService
+      .getSearchResults()
       .subscribe((data) => (this.searchResults = data));
+
+    this.searchResultsService
+      .getSearchValue()
+      .subscribe((data) => (this.searchValue = data));
   }
 }

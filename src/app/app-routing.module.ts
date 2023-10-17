@@ -17,7 +17,8 @@ const routes: Routes = [
     component: WatchlistComponent,
   },
   {
-    path: 'search/:movie-name',
+    // path: 'search/:movie-name',
+    path: 'search',
     component: SearchResultsComponent,
   },
   {
