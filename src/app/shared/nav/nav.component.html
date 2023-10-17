@@ -13,7 +13,12 @@
         <li class="mx-3 fw-bold">En <i class="bi bi-chevron-down"></i></li>
         <li class="ms-3">
           <a routerLink="watch-list"
-            ><i class="bi bi-heart-fill me-2"></i>WatchList</a
+            ><i class="bi bi-heart me-2 fs-5 position-relative"
+              ><span *ngIf="watchListCounter" class="watch-list-counter">{{
+                watchListCounter
+              }}</span></i
+            >
+            WatchList</a
           >
         </li>
       </ul>
