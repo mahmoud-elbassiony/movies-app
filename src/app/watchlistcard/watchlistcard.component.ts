@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-watchlistcard',
@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class WatchlistcardComponent {
   starRating = 0;
+  @Input() item: any;
 }
