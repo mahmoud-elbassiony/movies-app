@@ -31,6 +31,7 @@ export class MoviePageComponent {
 
     this.movieDataService.getMovieData().subscribe((data) => {
       this.movieDetails = data;
+      window.scrollTo(0, 0);
 
       // })
       console.log(this.movieDetails);

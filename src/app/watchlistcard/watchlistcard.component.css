@@ -1,8 +1,6 @@
-.bi-heart-fill
- {
+.bi-heart-fill {
   color: var(--main-color);
- }
-
+}
 .rating {
   font-style: normal;
   display: inline-block;
@@ -19,4 +17,10 @@
 }
 .bi-star-fill:nth-child(even) {
   margin: 0 0.25rem;
+}
+img {
+  width: 100%;
+  display: block;
+  height: 250px;
+  object-fit: cover;
 }
