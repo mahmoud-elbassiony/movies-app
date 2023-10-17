@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./watchlistempty.component.css'],
 })
 export class WatchlistemptyComponent {
+
   @Input() item: any;
 }

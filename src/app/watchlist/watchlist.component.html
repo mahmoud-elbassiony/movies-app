@@ -1,15 +1,15 @@
 
-<div class="row">
-<div class="col" *ngFor="let movie of movies">
-
-  <div *ngIf="this.movie.length > 0; then thenBlock else elseBlock"></div>
-   <ng-template #thenBlock><app-watchlistcard [item]="movie"></app-watchlistcard></ng-template>
-<ng-template #elseBlock><app-watchlistempty [item]="movie"></app-watchlistempty></ng-template>
-
-</div>
-</div>
 
 
+  <div *ngIf="this.movies.length > 0;  else elseBlock">
+  <div class="row">
+  <div class="col" *ngFor="let movie of movies">
+  <app-watchlistcard [item]="movie"></app-watchlistcard>
+  </div>
+  </div>
+  </div>
+
+<ng-template #elseBlock><app-watchlistempty ></app-watchlistempty></ng-template>
 
 
 

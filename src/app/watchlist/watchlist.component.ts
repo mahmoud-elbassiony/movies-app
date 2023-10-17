@@ -8,7 +8,7 @@ import { WatchListSService } from '../shared/watch-list-service/watch-list-s.ser
 })
 export class WatchlistComponent {
   starRating = 0;
-  
+
   movies!: any;
   constructor(private WatchList: WatchListSService) {}
 

@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class WatchlistcardComponent {
   starRating = 0;
+
   @Input() item: any;
 }
