@@ -14,6 +14,11 @@ export class RequestService {
   getMovies(): Observable<any> {
     return this.http.get(`https://api.themoviedb.org/3/movie/popular?`);
   }
+  getAllMovies(page: number) {
+    return this.http.get(
+      `https://api.themoviedb.org/3/movie/popular?page=${page}&`
+    );
+  }
 
   getMovieById(id: number): Observable<any> {
     return this.http.get(`https://api.themoviedb.org/3/movie/${id}?`);
