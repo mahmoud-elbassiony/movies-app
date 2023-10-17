@@ -1,5 +1,6 @@
 
 
+
   <div *ngIf="this.movies.length > 0;  else elseBlock">
   <div class="row">
   <div class="col" *ngFor="let movie of movies">
@@ -9,6 +10,7 @@
   </div>
 
 <ng-template #elseBlock><app-watchlistempty ></app-watchlistempty></ng-template>
+
 
 
 
