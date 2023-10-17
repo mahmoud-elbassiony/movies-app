@@ -5,7 +5,4 @@ import { Component, Input } from '@angular/core';
   templateUrl: './watchlistempty.component.html',
   styleUrls: ['./watchlistempty.component.css'],
 })
-export class WatchlistemptyComponent {
-
-  @Input() item: any;
-}
+export class WatchlistemptyComponent {}
