@@ -1,5 +1,5 @@
 <!-- <div class="card" (click)="redirect($event, movie.id)"> -->
-<div class="card" (click)="redirect($event, watchlist1, watchlist2, movie.id)">
+<div class="" (click)="redirect($event, watchlist1, watchlist2, movie.id)">
   <div>
     <div class="card border-0 h-100">
       <div class="movie-img-wapper position-relative">
@@ -24,12 +24,15 @@
         </div>
       </div>
 
-      <div class="card-body px-2">
-        <h5 class="card-title fw-bold fs-6 title">{{ movie.title }}</h5>
-        <p class="card-text text-muted">
-          {{ movie.release_date }}
-        </p>
+      <div class="card-body d-flex justify-content-between">
         <div>
+          <h5 class="card-title fw-bold fs-6 title">{{ movie.title }}</h5>
+          <p class="card-text text-muted">
+            {{ movie.release_date }}
+          </p>
+        </div>
+
+        <div class="pt-1">
           <i
             #watchlist1
             (click)="toggleWatchList(movie)"
