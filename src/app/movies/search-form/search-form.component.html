@@ -1,2 +1,10 @@
-<input type="text" name="search" placeholder="Search and explore...." #search />
-<button (click)="searchFn(search)" class="btn btn-primary">Search</button>
+<div class="d-flex gap-3">
+  <input
+    class="form-control"
+    type="text"
+    name="search"
+    placeholder="Search and explore...."
+    #search
+  />
+  <button (click)="searchFn(search)" class="btn btn-primary">Search</button>
+</div>
