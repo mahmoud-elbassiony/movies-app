@@ -1,7 +1,14 @@
+
+<div (click)="redirect($event, watchlist, movie.id)">
+
 <div (click)="redirect($event, watchlist, movie.id)" style="cursor: pointer">
+
   <div>
-    <div class="card border-0 h-100">
+    <div class="card border-0">
       <div class="movie-img-wapper position-relative">
+
+        <img [src]="img_path + movie.poster_path" style="height: 100%" alt="" />
+
         <img
           *ngIf="movie && movie.backdrop_path; else film"
           src="{{ img_path }}{{ movie.backdrop_path }}"
@@ -11,6 +18,7 @@
         <ng-template #film
           ><img src="../../../assets/default-movie.jpg" alt="" />
         </ng-template>
+
         <div
           class="position-absolute rounded-circle dots-container d-flex align-items-center justify-content-center"
         >
