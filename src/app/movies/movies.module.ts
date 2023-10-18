@@ -8,11 +8,26 @@ import { RecommendationsComponent } from './recommendations/recommendations.comp
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { SharedModule } from '../shared/shared.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [moviesComponent, MovieComponent, MovieDetailsComponent, MoviePageComponent, RecommendationsComponent, HeroSectionComponent, SearchResultsComponent, SearchFormComponent],
-  imports: [CommonModule],
-   exports: [moviesComponent, MovieComponent, MovieDetailsComponent, MoviePageComponent],
-
+  declarations: [
+    moviesComponent,
+    MovieComponent,
+    MovieDetailsComponent,
+    MoviePageComponent,
+    RecommendationsComponent,
+    HeroSectionComponent,
+    SearchResultsComponent,
+    SearchFormComponent,
+  ],
+  imports: [CommonModule, SharedModule, MatProgressSpinnerModule],
+  exports: [
+    moviesComponent,
+    MovieComponent,
+    MovieDetailsComponent,
+    MoviePageComponent,
+  ],
 })
 export class MoviesModule {}

@@ -7,7 +7,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WatchlistemptyComponent } from './watchlistempty/watchlistempty.component';
 import { WatchlistcardComponent } from './watchlistcard/watchlistcard.component';
-import { NotfoundComponent } from './notfound/notfound.component';
+
 import { MoviesModule } from './movies/movies.module';
 import { LoaderComponent } from './loader/loader.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +22,7 @@ import { LoaderinterceptorInterceptor } from './shared/interceptors/loaderinterc
     WatchlistcardComponent,
     NotfoundComponent,
     LoaderComponent,
+
   ],
   imports: [
     BrowserModule,

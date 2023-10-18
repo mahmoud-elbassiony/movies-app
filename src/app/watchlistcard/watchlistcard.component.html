@@ -1,40 +1,51 @@
-<div class="container px-5">
-  <div class="card mb-3" style="max-width: 540px">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img
-          [src]="img_path + item.poster_path"
-          class="img-fluid rounded-start"
-          alt="movie-poster"
-        />
+<div class="container-md mb-5" style="height: 300px">
+  <div class="d-flex background rounded p-2 shadow">
+    <div class="img-wrapper">
+      <img
+        [src]="img_path + item.poster_path"
+        class="img-fluid"
+        alt="movie-poster"
+      />
+    </div>
+    <div class="card-text">
+      <div class="d-flex justify-content-between">
+        <h5 class="">
+          {{ item.original_title }}
+        </h5>
+
+        <a
+          (click)="toggleWatchList(item)"
+          style="cursor: pointer"
+          class="text-primary pe-3"
+        >
+          <i
+            class="bi bi-heart fs-5"
+            [ngClass]="{
+              'bi-heart': item && !item.isInWatchList,
+              'bi-heart-fill': item && item.isInWatchList
+            }"
+          ></i>
+        </a>
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <div class="d-flex align-items-center justify-content-between">
-            <h5 class="card-title fw-bold">{{ item.original_title }}</h5>
-            <i class="bi-heart-fill me-2 fs-4"></i>
-          </div>
-          <p class="mb-0">
-            <small class="text-body-secondary">{{ item.release_date }}</small>
-          </p>
 
-          <div class="d-flex align-items-center mb-4 mt-3">
-            <div class="rating-container position-relative me-3">
-              <div class="rating">
-                <i *ngFor="let star of stars" class="bi bi-star-fill fs-5"></i>
-              </div>
-              <div
-                class="rating rating-bg position-absolute"
-                [style.width.%]="item?.vote_average * 10"
-              >
-                <i *ngFor="let star of stars" class="bi bi-star-fill fs-5"></i>
-              </div>
-            </div>
+      <p>
+        <small class="text-body-secondary">{{ item.release_date }}</small>
+      </p>
+      <div class="d-flex align-items-center mb-3">
+        <div class="rating-container position-relative me-3">
+          <div class="rating">
+            <i *ngFor="let star of stars" class="bi bi-star-fill fs-5"></i>
           </div>
-
-          <p class="description">{{ item.overview.slice(0, 150) }}...</p>
+          <div
+            class="rating rating-bg position-absolute"
+            [style.width.%]="item?.vote_average * 10"
+          >
+            <i *ngFor="let star of stars" class="bi bi-star-fill fs-5"></i>
+          </div>
         </div>
+        <p class="m-0">{{ item.vote_count }}</p>
       </div>
+      <p class="description ms-auto">{{ item.overview.slice(0, 250) }}...</p>
     </div>
   </div>
 </div>

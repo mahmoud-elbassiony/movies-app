@@ -1,8 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Movie } from 'src/app/shared/interfaces/movie';
 import { MovieDataService } from 'src/app/shared/services/movie-data/movie-data.service';
 import { RequestService } from 'src/app/shared/services/request.service';
 import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-s.service';
+// import {
+//   ProgressSpinnerMode,
+//   MatProgressSpinnerModule,
+// } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-movie',
@@ -11,9 +16,10 @@ import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-
 })
 export class MovieComponent {
   img_path = 'https://image.tmdb.org/t/p/w500/';
-  @Input() movie!: any;
-
+  @Input() movie!: Movie;
   watchList!: any;
+
+  color: string = '#ddd';
 
   constructor(
     private route: Router,
@@ -25,18 +31,18 @@ export class MovieComponent {
   redirect(e: any, a: any, id: number) {
     if (e.target !== a) {
       this.route.navigate(['movie-details', id]);
-      this.requestService
-        .getMovieById(id)
-        .subscribe((data) => this.movieDataService.setMovieData(data));
+      this.requestService.getMovieById(id).subscribe((data) => {
+        this.movieDataService.setMovieData(data);
+      });
 
       this.requestService
         .getRecommendations(id)
         .subscribe((data) =>
-          this.movieDataService.setMovieRecommendations(data)
+          this.movieDataService.setMovieRecommendations(data.results)
         );
     }
   }
-  toggleWatchList(movie: any) {
+  toggleWatchList(movie: Movie) {
     this.watchListService.toggleWatchList(movie);
   }
 

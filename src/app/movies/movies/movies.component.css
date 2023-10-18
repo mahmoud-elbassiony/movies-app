@@ -6,3 +6,6 @@ a {
   cursor: pointer;
   padding: 1rem;
 }
+.num:hover {
+  background-color: #ffd700;
+}
