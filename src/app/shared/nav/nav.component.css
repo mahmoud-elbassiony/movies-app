@@ -1,5 +1,5 @@
 header {
-  background-color: var(--main-color);
+  z-index: 2;
 }
 .image {
   width: 8rem;
@@ -14,7 +14,7 @@ ul li a {
   text-decoration: none;
   color: black;
 }
-/* 
+/*
 .watch-list-icon {
   /* position: relative;
   font-size: 20px; */

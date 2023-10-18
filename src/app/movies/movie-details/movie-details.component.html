@@ -62,7 +62,10 @@
             class="fw-normal me-1"
             *ngFor="let lang of movieDetails?.spoken_languages; let i = index"
           >
-            {{ lang.english_name }}
+            {{
+              lang.english_name
+                | separate : i : movieDetails.spoken_languages.length
+            }}
           </h6>
         </div>
       </div>

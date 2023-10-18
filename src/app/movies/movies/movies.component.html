@@ -1,4 +1,9 @@
 <app-hero-section></app-hero-section>
+<app-notfound *ngIf="errorService.errorMsg | async"></app-notfound>
+<div *ngIf="errorCode != ''">
+  <h1>{{ errorCode }}</h1>
+  <p>{{ errorMessage }}</p>
+</div>
 <div class="container py-5">
   <div class="row g-4">
     <app-movie
