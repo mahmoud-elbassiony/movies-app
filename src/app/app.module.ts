@@ -9,6 +9,10 @@ import { WatchlistemptyComponent } from './watchlistempty/watchlistempty.compone
 import { WatchlistcardComponent } from './watchlistcard/watchlistcard.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { MoviesModule } from './movies/movies.module';
+import { LoaderComponent } from './loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderinterceptorInterceptor } from './shared/interceptors/loaderinterceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -17,21 +21,30 @@ import { MoviesModule } from './movies/movies.module';
     WatchlistemptyComponent,
     WatchlistcardComponent,
     NotfoundComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AppRoutingModule,
     MoviesModule,
+
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
+    BrowserAnimationsModule,
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderinterceptorInterceptor,
+      multi: true,
+    },
+  ],
 
   bootstrap: [AppComponent],
 })
