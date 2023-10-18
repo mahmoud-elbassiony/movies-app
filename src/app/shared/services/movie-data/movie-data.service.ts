@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ReplaySubject } from 'rxjs';
+import { ReplaySubject, BehaviorSubject } from 'rxjs';
 import { MovieDetails } from '../../interfaces/movie-details';
 import { Movie } from '../../interfaces/movie';
 

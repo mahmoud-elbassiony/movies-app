@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/shared/interfaces/movie';
 import { RequestService } from 'src/app/shared/services/request.service';
 import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-s.service';
 
@@ -8,7 +9,7 @@ import { WatchListSService } from 'src/app/shared/watch-list-service/watch-list-
   styleUrls: ['./movies.component.css'],
 })
 export class moviesComponent implements OnInit {
-  movies!: any;
+  movies!: Movie[];
   img_path: string = '';
   watchList: any;
   pageNum: number = 1;
