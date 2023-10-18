@@ -1,7 +1,7 @@
 <div class="container py-5">
   <div *ngIf="this.movies.length > 0; else elseBlock">
     <div class="row g-3">
-      <div class="col-md-6 col-sm-12" *ngFor="let movie of movies">
+      <div class="col-12 col-lg-6" *ngFor="let movie of movies">
         <app-watchlistcard [item]="movie"></app-watchlistcard>
       </div>
     </div>
