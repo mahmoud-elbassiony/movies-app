@@ -9,6 +9,7 @@ import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { SharedModule } from '../shared/shared.module';
     SearchResultsComponent,
     SearchFormComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, MatProgressSpinnerModule],
   exports: [
     moviesComponent,
     MovieComponent,
