@@ -5,12 +5,6 @@
   width: 20rem;
   color: #eee;
 }
-.info button {
-  background-color: var(--main-color);
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.4rem 7rem;
-}
 img {
   width: 100%;
   display: block;
