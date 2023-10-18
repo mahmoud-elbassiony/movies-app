@@ -1,12 +1,8 @@
-<div class="" (click)="redirect($event, watchlist, movie.id)">
+<div (click)="redirect($event, watchlist, movie.id)">
   <div>
-    <div class="card border-0 h-100">
+    <div class="card border-0">
       <div class="movie-img-wapper position-relative">
-        <img
-          src="{{ img_path }}{{ movie.backdrop_path }}"
-          class="card-img-top"
-          alt="..."
-        />
+        <img [src]="img_path + movie.poster_path" style="height: 100%" alt="" />
         <div
           class="position-absolute rounded-circle dots-container d-flex align-items-center justify-content-center"
         >
