@@ -13,6 +13,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderinterceptorInterceptor } from './shared/interceptors/loaderinterceptor.interceptor';
+import { NotfoundComponent } from './shared/notfound/notfound.component';
 
 @NgModule({
   declarations: [
