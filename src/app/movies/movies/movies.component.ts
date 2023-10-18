@@ -23,6 +23,10 @@ export class moviesComponent implements OnInit {
     private watchListService: WatchListSService,
     public errorService: ErrorService
   ) {}
+
+  scroll() {
+    window.scrollTo(0, 289);
+  }
   ngOnInit() {
     this.requestService.getAllMovies(this.pageNum).subscribe(
       (data: any) => {
@@ -51,10 +55,12 @@ export class moviesComponent implements OnInit {
       }
     );
   }
+
   goToAnotherPage(index: number) {
     this.pageNum = index;
     this.requestService.getAllMovies(this.pageNum).subscribe((data: any) => {
       this.movies = data.results;
+      this.scroll();
     });
   }
   handleNext(e: Event) {
@@ -64,6 +70,7 @@ export class moviesComponent implements OnInit {
         .getAllMovies(++this.pageNum)
         .subscribe((data: any) => {
           this.movies = data.results;
+          this.scroll();
         });
   }
   handlePrevious(e: Event) {
@@ -73,6 +80,7 @@ export class moviesComponent implements OnInit {
         .getAllMovies(--this.pageNum)
         .subscribe((data: any) => {
           this.movies = data.results;
+          this.scroll();
         });
     }
   }

@@ -29,7 +29,6 @@ img {
   margin: 0 1px;
 }
 .mat-mdc-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #21cd79;
   --mdc-circular-progress-active-indicator-color: #16b468;
 }
 
