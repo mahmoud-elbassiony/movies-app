@@ -33,7 +33,6 @@
           </div>
           <div
             class="rating rating-bg position-absolute"
-
             [style.width.%]="movieDetails && movieDetails.vote_average * 10"
           >
             <i *ngFor="let star of stars" class="bi bi-star-fill fs-5"></i>
@@ -67,7 +66,10 @@
             class="fw-normal me-1"
             *ngFor="let lang of movieDetails?.spoken_languages; let i = index"
           >
-            {{ lang.english_name }}
+            {{
+              lang.english_name
+                | separate : i : movieDetails.spoken_languages.length
+            }}
           </h6>
         </div>
       </div>
