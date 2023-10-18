@@ -21,25 +21,15 @@ export class ErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        // Handle the error here
-        let errorMsg = '';
-        if (error.error instanceof ErrorEvent) {
-          console.log('this is client side error');
-          errorMsg = `Error: ${error.error.message}`;
-        } else {
-          console.log('this is server side error');
-          errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
-        }
         this.errorService.setErrorMsg(error.message);
         this.errorService.setErrorCode(error.status);
-        console.log(errorMsg);
 
         console.log(this.route.url.includes('/movie-details/'));
         if (this.route.url !== '/') {
           this.route.navigate([`${error.status}`]);
         }
 
-        return throwError(errorMsg);
+        return throwError(error.message);
       })
     );
   }
