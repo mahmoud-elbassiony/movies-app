@@ -3,10 +3,18 @@
     <div class="card border-0 h-100">
       <div class="movie-img-wapper position-relative">
         <img
+          *ngIf="movie && movie.backdrop_path; else film"
           src="{{ img_path }}{{ movie.backdrop_path }}"
           class="card-img-top"
           alt="..."
         />
+        <ng-template #film
+          ><div
+            style="width: 174px; height: 200px"
+            class="d-flex align-items-center justify-content-center bg-primary"
+          >
+            <i class="bi bi-film d-inline-block fs-2"></i></div
+        ></ng-template>
         <div
           class="position-absolute rounded-circle dots-container d-flex align-items-center justify-content-center"
         >
