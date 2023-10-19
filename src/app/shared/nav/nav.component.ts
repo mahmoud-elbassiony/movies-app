@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WatchListSService } from '../watch-list-service/watch-list-s.service';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +9,12 @@ import { WatchListSService } from '../watch-list-service/watch-list-s.service';
 })
 export class NavComponent {
   watchListCounter!: number;
-  constructor(private watchListSService: WatchListSService) {}
+  progressValue: any;
+  colorValue: any;
+  constructor(
+    private watchListSService: WatchListSService,
+    public loadersevice: LoaderService
+  ) {}
 
   ngOnInit() {
     this.watchListSService

@@ -23,12 +23,12 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         this.errorService.setErrorMsg(error.message);
         this.errorService.setErrorCode(error.status);
+        console.log(error);
 
-        console.log(this.route.url.includes('/movie-details/'));
         if (this.route.url !== '/') {
           this.route.navigate([`${error.status}`]);
         }
-
+        console.log(error);
         return throwError(error.message);
       })
     );
