@@ -4,8 +4,17 @@
 a {
   text-decoration: none;
   cursor: pointer;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 .num:hover {
-  background-color: #ffd700;
+  background-color: #ffe353;
+}
+
+.page-link {
+  box-shadow: none !important;
+  background-color: white;
+}
+.color {
+  background-color: #ffe353;
+  box-shadow: none;
 }

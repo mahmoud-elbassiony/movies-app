@@ -14,7 +14,7 @@ export class moviesComponent implements OnInit {
   img_path: string = '';
   watchList: any;
   pageNum: number = 1;
-  pagesNum: number = 0;
+  pagesNum: number = 300;
   pagination!: any;
   errorMessage!: string;
   errorCode!: string;
@@ -32,8 +32,8 @@ export class moviesComponent implements OnInit {
       (data: any) => {
         this.movies = data.results;
         this.img_path = this.requestService.img_path;
-        this.pagesNum = data.total_pages;
-        this.pagination = new Array(8);
+        // this.pagesNum = data.total_pages;
+        this.pagination = new Array(7);
         this.watchListService.getWatchList().subscribe((wl) => {
           this.watchList = wl;
           for (let j = 0; j < this.movies?.length; j++) {
@@ -56,8 +56,9 @@ export class moviesComponent implements OnInit {
     );
   }
 
-  goToAnotherPage(index: number) {
-    this.pageNum = index;
+  goToAnotherPage(e: any) {
+    this.pageNum = e.target.textContent;
+
     this.requestService.getAllMovies(this.pageNum).subscribe((data: any) => {
       this.movies = data.results;
       this.scroll();

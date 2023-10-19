@@ -8,9 +8,10 @@ import { HttpInterceptorInterceptor } from './interceptors/http.interceptor';
 import { SeparatePipe } from './pipes/separate/separate.pipe';
 import { ErrorInterceptor } from './interceptors/error-interceptor/error.interceptor';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { PaginationPipe } from './pipes/pagination/pagination.pipe';
 
 @NgModule({
-  declarations: [NavComponent, SeparatePipe, NotfoundComponent],
+  declarations: [NavComponent, SeparatePipe, NotfoundComponent, PaginationPipe],
 
   imports: [
     CommonModule,
@@ -27,6 +28,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     RouterModule,
     SeparatePipe,
     NotfoundComponent,
+    PaginationPipe,
   ],
 
   providers: [
