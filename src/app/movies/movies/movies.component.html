@@ -19,21 +19,28 @@
   >
     <ul class="pagination d-flex align-items-center">
       <li class="page-item">
-        <a (click)="handlePrevious($event)">&raquo;</a>
-      </li>
-      <li
-        class="page-item border"
-        *ngFor="let page of pagination; let i = index"
-      >
-        <button
-          class="page-link text-dark num"
-          (click)="goToAnotherPage(i + 1)"
+        <a
+          class="page-link text-dark"
+          aria-label="Previous"
+          (click)="handlePrevious($event)"
         >
-          {{ i + 1 }}
+          <span aria-hidden="true">&laquo;</span></a
+        >
+      </li>
+      <li class="page-item" *ngFor="let page of pagination; let i = index">
+        <button
+          #pageNumber
+          [ngClass]="{
+            color: pageNumber.textContent && +pageNumber.textContent == pageNum
+          }"
+          class="page-link text-dark num"
+          (click)="goToAnotherPage($event)"
+        >
+          {{ pageNum | pagination : i : pagesNum }}
         </button>
       </li>
       <li class="page-item">
-        <a (click)="handleNext($event)">&raquo;</a>
+        <a class="page-link text-dark" (click)="handleNext($event)">&raquo;</a>
       </li>
     </ul>
   </div>
