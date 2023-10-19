@@ -20,9 +20,7 @@ import { LoaderinterceptorInterceptor } from './shared/interceptors/loaderinterc
     WatchlistComponent,
     WatchlistemptyComponent,
     WatchlistcardComponent,
-    NotfoundComponent,
     LoaderComponent,
-
   ],
   imports: [
     BrowserModule,
